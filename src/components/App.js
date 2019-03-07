@@ -11,7 +11,7 @@ class App extends React.Component {
    
   async componentDidMount() {
     const response = await api.get();
-    let arrayCorrigido = []
+    let arrayCorrigido = [];
     response.data.events.forEach(event => {
       const transactionIdIndex = event.custom_data.findIndex(x => x.key === 'transaction_id');
       const transaction_id = event.custom_data[transactionIdIndex].value;
@@ -30,7 +30,7 @@ class App extends React.Component {
         if (product !== undefined && product != null && product !== {}) {
           products.push(product);
         } 
-        (store_name && store_name.length) ? arrayCorrigido.push({ created_on: event.timestamp, transaction_id, products, store_name }) : arrayCorrigido.push({ created_on: event.timestamp, transaction_id, products });
+        (store_name && store_name.length) ? arrayCorrigido.push({ created_on: event.timestamp, total_price: event.revenue, transaction_id, products, store_name }) : arrayCorrigido.push({ created_on: event.timestamp, total_price: event.revenue, transaction_id, products });
       } else {
         let productListing = arrayCorrigido[arrayIndex];
         if (product !== undefined && product != null && product !== {}) {
