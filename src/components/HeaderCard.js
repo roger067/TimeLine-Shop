@@ -3,7 +3,6 @@ import Moment from 'react-moment';
 
 const HeaderCard = (props) => {
     const dateToFormat = props.data.created_on;
-    const total_price = 120 + 130;
     return (
         <div className="timeline-heading">
             <div className="timeline-title">
@@ -20,7 +19,7 @@ const HeaderCard = (props) => {
             </div>
             <div className="timeline-title">
                 <img src="icons/money.svg" alt="money" />
-                R$ {total_price.toFixed(2)}
+                R$ {props.data.total_price.toFixed(2)}
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ import React from 'react';
 const BodyCard = (props) => {
     const renderedShop = props.data.products.map((shop) => {
         return (
-            <tr>
+            <tr key={shop.name}>
                 <td>{shop.name}</td>
                 <td className="text-right">R$ {shop.price.toFixed(2)}</td>
             </tr>
